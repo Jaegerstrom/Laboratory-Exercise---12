@@ -32,6 +32,7 @@ Partial Class Form1
         Me.ButtonCreate = New System.Windows.Forms.Button()
         Me.ButtonRead = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.TextBoxHiddenID = New System.Windows.Forms.TextBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -47,7 +48,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(299, 107)
+        Me.Label1.Location = New System.Drawing.Point(299, 86)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(38, 13)
         Me.Label1.TabIndex = 1
@@ -55,14 +56,14 @@ Partial Class Form1
         '
         'TextBoxName
         '
-        Me.TextBoxName.Location = New System.Drawing.Point(343, 104)
+        Me.TextBoxName.Location = New System.Drawing.Point(343, 83)
         Me.TextBoxName.Name = "TextBoxName"
         Me.TextBoxName.Size = New System.Drawing.Size(159, 20)
         Me.TextBoxName.TabIndex = 2
         '
         'TextBoxAge
         '
-        Me.TextBoxAge.Location = New System.Drawing.Point(343, 130)
+        Me.TextBoxAge.Location = New System.Drawing.Point(343, 109)
         Me.TextBoxAge.Name = "TextBoxAge"
         Me.TextBoxAge.Size = New System.Drawing.Size(159, 20)
         Me.TextBoxAge.TabIndex = 4
@@ -70,7 +71,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(299, 133)
+        Me.Label2.Location = New System.Drawing.Point(299, 112)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(29, 13)
         Me.Label2.TabIndex = 3
@@ -78,7 +79,7 @@ Partial Class Form1
         '
         'TextBoxEmail
         '
-        Me.TextBoxEmail.Location = New System.Drawing.Point(343, 156)
+        Me.TextBoxEmail.Location = New System.Drawing.Point(343, 135)
         Me.TextBoxEmail.Name = "TextBoxEmail"
         Me.TextBoxEmail.Size = New System.Drawing.Size(159, 20)
         Me.TextBoxEmail.TabIndex = 6
@@ -86,7 +87,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(299, 159)
+        Me.Label3.Location = New System.Drawing.Point(299, 138)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(35, 13)
         Me.Label3.TabIndex = 5
@@ -118,11 +119,20 @@ Partial Class Form1
         Me.DataGridView1.Size = New System.Drawing.Size(776, 136)
         Me.DataGridView1.TabIndex = 9
         '
+        'TextBoxHiddenID
+        '
+        Me.TextBoxHiddenID.Location = New System.Drawing.Point(343, 161)
+        Me.TextBoxHiddenID.Name = "TextBoxHiddenID"
+        Me.TextBoxHiddenID.Size = New System.Drawing.Size(159, 20)
+        Me.TextBoxHiddenID.TabIndex = 10
+        Me.TextBoxHiddenID.Visible = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.TextBoxHiddenID)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ButtonRead)
         Me.Controls.Add(Me.ButtonCreate)
@@ -151,4 +161,5 @@ Partial Class Form1
     Friend WithEvents ButtonCreate As Button
     Friend WithEvents ButtonRead As Button
     Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents TextBoxHiddenID As TextBox
 End Class

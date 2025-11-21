@@ -51,6 +51,7 @@ Public Class Form1
                 Dim table As New DataTable()
                 adapter.Fill(table)
                 DataGridView1.DataSource = table
+                DataGridView1.Columns("id").Visible = False
             End Using
         Catch ex As Exception
             MsgBox(ex.Message)
@@ -63,6 +64,9 @@ Public Class Form1
             TextBoxName.Text = selectedRow.Cells("name").Value.ToString()
             TextBoxAge.Text = selectedRow.Cells("age").Value.ToString()
             TextBoxEmail.Text = selectedRow.Cells("email").Value.ToString()
+
+            TextBoxHiddenID.Text = selectedRow.Cells("id").Value.ToString()
+
         End If
     End Sub
 End Class
