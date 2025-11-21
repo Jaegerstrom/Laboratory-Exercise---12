@@ -42,4 +42,27 @@ Public Class Form1
             MsgBox(ex.Message)
         End Try
     End Sub
+
+    Private Sub ButtonRead_Click(sender As Object, e As EventArgs) Handles ButtonRead.Click
+        Dim query As String = "SELECT * FROM crud_demo_db.students_tbl;"
+        Try
+            Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
+                Dim adapter As New MySqlDataAdapter(query, conn)
+                Dim table As New DataTable()
+                adapter.Fill(table)
+                DataGridView1.DataSource = table
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentDoubleClick
+        If e.RowIndex >= 0 Then
+            Dim selectedRow As DataGridViewRow = DataGridView1.Rows(e.RowIndex)
+            TextBoxName.Text = selectedRow.Cells("name").Value.ToString()
+            TextBoxAge.Text = selectedRow.Cells("age").Value.ToString()
+            TextBoxEmail.Text = selectedRow.Cells("email").Value.ToString()
+        End If
+    End Sub
 End Class
