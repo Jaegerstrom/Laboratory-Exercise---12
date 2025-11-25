@@ -32,9 +32,6 @@ Partial Class Form1
         Me.ButtonCreate = New System.Windows.Forms.Button()
         Me.ButtonRead = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.TextBoxHiddenID = New System.Windows.Forms.TextBox()
-        Me.ButtonUpdate = New System.Windows.Forms.Button()
-        Me.ButtonRemove = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '

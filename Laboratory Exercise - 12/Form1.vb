@@ -52,6 +52,7 @@ Public Class Form1
                 adapter.Fill(table)
                 DataGridView1.DataSource = table
                 DataGridView1.Columns("id").Visible = False
+                DataGridView1.Columns("is_deleted").Visible = False
             End Using
         Catch ex As Exception
             MsgBox(ex.Message)
