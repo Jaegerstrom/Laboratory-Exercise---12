@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.ButtonConnect = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -50,7 +50,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(286, 119)
+        Me.Label1.Location = New System.Drawing.Point(299, 107)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(38, 13)
         Me.Label1.TabIndex = 1
@@ -58,14 +58,14 @@ Partial Class Form1
         '
         'TextBoxName
         '
-        Me.TextBoxName.Location = New System.Drawing.Point(330, 116)
+        Me.TextBoxName.Location = New System.Drawing.Point(343, 104)
         Me.TextBoxName.Name = "TextBoxName"
         Me.TextBoxName.Size = New System.Drawing.Size(159, 20)
         Me.TextBoxName.TabIndex = 2
         '
         'TextBoxAge
         '
-        Me.TextBoxAge.Location = New System.Drawing.Point(330, 142)
+        Me.TextBoxAge.Location = New System.Drawing.Point(343, 130)
         Me.TextBoxAge.Name = "TextBoxAge"
         Me.TextBoxAge.Size = New System.Drawing.Size(159, 20)
         Me.TextBoxAge.TabIndex = 4
@@ -73,7 +73,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(286, 145)
+        Me.Label2.Location = New System.Drawing.Point(299, 133)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(29, 13)
         Me.Label2.TabIndex = 3
@@ -81,7 +81,7 @@ Partial Class Form1
         '
         'TextBoxEmail
         '
-        Me.TextBoxEmail.Location = New System.Drawing.Point(330, 168)
+        Me.TextBoxEmail.Location = New System.Drawing.Point(343, 156)
         Me.TextBoxEmail.Name = "TextBoxEmail"
         Me.TextBoxEmail.Size = New System.Drawing.Size(159, 20)
         Me.TextBoxEmail.TabIndex = 6
@@ -89,7 +89,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(286, 171)
+        Me.Label3.Location = New System.Drawing.Point(299, 159)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(35, 13)
         Me.Label3.TabIndex = 5
@@ -121,40 +121,11 @@ Partial Class Form1
         Me.DataGridView1.Size = New System.Drawing.Size(776, 136)
         Me.DataGridView1.TabIndex = 9
         '
-        'TextBoxHiddenID
-        '
-        Me.TextBoxHiddenID.Location = New System.Drawing.Point(330, 90)
-        Me.TextBoxHiddenID.Name = "TextBoxHiddenID"
-        Me.TextBoxHiddenID.Size = New System.Drawing.Size(159, 20)
-        Me.TextBoxHiddenID.TabIndex = 10
-        Me.TextBoxHiddenID.Visible = False
-        '
-        'ButtonUpdate
-        '
-        Me.ButtonUpdate.Location = New System.Drawing.Point(431, 203)
-        Me.ButtonUpdate.Name = "ButtonUpdate"
-        Me.ButtonUpdate.Size = New System.Drawing.Size(160, 58)
-        Me.ButtonUpdate.TabIndex = 11
-        Me.ButtonUpdate.Text = "Update (Modify Existing Data)"
-        Me.ButtonUpdate.UseVisualStyleBackColor = True
-        '
-        'ButtonRemove
-        '
-        Me.ButtonRemove.Location = New System.Drawing.Point(608, 203)
-        Me.ButtonRemove.Name = "ButtonRemove"
-        Me.ButtonRemove.Size = New System.Drawing.Size(160, 58)
-        Me.ButtonRemove.TabIndex = 12
-        Me.ButtonRemove.Text = "Remove (Remove Data)"
-        Me.ButtonRemove.UseVisualStyleBackColor = True
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.ButtonRemove)
-        Me.Controls.Add(Me.ButtonUpdate)
-        Me.Controls.Add(Me.TextBoxHiddenID)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.ButtonRead)
         Me.Controls.Add(Me.ButtonCreate)
@@ -183,7 +154,4 @@ Partial Class Form1
     Friend WithEvents ButtonCreate As Button
     Friend WithEvents ButtonRead As Button
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents TextBoxHiddenID As TextBox
-    Friend WithEvents ButtonUpdate As Button
-    Friend WithEvents ButtonRemove As Button
 End Class
