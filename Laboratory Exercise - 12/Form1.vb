@@ -1,22 +1,19 @@
-﻿Imports System.Data.SqlClient
-Imports MySql.Data.MySqlClient
-Imports Org.BouncyCastle.Crypto.Parameters
-Public Class Form1
+﻿Imports MySql.Data.MySqlClient
 
-    Private conn As MySqlConnection
-    Private COMMAND As MySqlCommand
+Public Class Form1
+    Dim conn As MySqlConnection
+    Dim COMMAND As MySqlCommand
+    Public Property TextBoxHiddenID As Object
 
     Private Sub ButtonConnect_Click(sender As Object, e As EventArgs) Handles ButtonConnect.Click
-        Dim mySqlConnection As MySqlConnection = New MySqlConnection()
-        conn = mySqlConnection
-        conn.ConnectionString = "server=127.0.0.1; port=3307; userid=root; database=crud_demo_db;"
+        conn = New MySqlConnection
+        conn.ConnectionString = "server=localhost; userid=root; password=root; database=crud_demo_db;"
 
         Try
             conn.Open()
-            MessageBox.Show("Connected!")
+            MessageBox.Show("Connected")
         Catch ex As Exception
             MessageBox.Show(ex.Message)
-        Finally
             conn.Close()
         End Try
     End Sub
@@ -24,7 +21,7 @@ Public Class Form1
     Private Sub ButtonCreate_Click(sender As Object, e As EventArgs) Handles ButtonCreate.Click
         Dim query As String = "INSERT INTO `crud_demo_db`.`students_tbl` (`name`, `age`, `email`) VALUES (@name, @age, @email);"
         Try
-            Using conn As New MySqlConnection("server=127.0.0.1; port=3307; userid=root; database=crud_demo_db;")
+            Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
                 conn.Open()
                 Using cmd As New MySqlCommand(query, conn)
                     cmd.Parameters.AddWithValue("@name", TextBoxName.Text)
@@ -35,18 +32,17 @@ Public Class Form1
                     TextBoxName.Clear()
                     TextBoxAge.Clear()
                     TextBoxEmail.Clear()
-
                 End Using
             End Using
         Catch ex As Exception
             MsgBox(ex.Message)
-        End Try
+        End Try 'github.com/IceCold194/sql_crud_demo
     End Sub
 
     Private Sub ButtonRead_Click(sender As Object, e As EventArgs) Handles ButtonRead.Click
-        Dim query As String = "SELECT * FROM crud_demo_db.students_tbl;"
+        Dim query As String = "SELECT * FROM crud_demo_db.students_tbl WHERE is_deleted = 0;"
         Try
-            Using conn As New MySqlConnection("server=127.0.0.1; port=3307; userid=root; database=crud_demo_db;")
+            Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
                 Dim adapter As New MySqlDataAdapter(query, conn)
                 Dim table As New DataTable()
                 adapter.Fill(table)
@@ -67,19 +63,19 @@ Public Class Form1
             TextBoxEmail.Text = selectedRow.Cells("email").Value.ToString()
 
             TextBoxHiddenID.Text = selectedRow.Cells("id").Value.ToString()
-
         End If
+
     End Sub
 
     Private Sub ButtonUpdate_Click(sender As Object, e As EventArgs) Handles ButtonUpdate.Click
-        Dim query As String = "UPDATE `crud_demo_db`.`students_tbl`
-                                SET `name` = @name,
-                                `age` = @age,
-                                `email` = @email
+        Dim query As String = "UPDATE `crud_demo_db`.`students_tbl` 
+                                SET `name` = @name, 
+                                `age` = @age, 
+                                `email` = @email 
                                 WHERE (`id` = @id);"
 
         Try
-            Using conn As New MySqlConnection("server=127.0.0.1; port=3307; userid=root; database=crud_demo_db;")
+            Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
                 conn.Open()
                 Using cmd As New MySqlCommand(query, conn)
                     cmd.Parameters.AddWithValue("@name", TextBoxName.Text)
@@ -87,12 +83,11 @@ Public Class Form1
                     cmd.Parameters.AddWithValue("@email", TextBoxEmail.Text)
                     cmd.Parameters.AddWithValue("@id", CInt(TextBoxHiddenID.Text))
                     cmd.ExecuteNonQuery()
-                    MessageBox.Show("Record updated successful!")
+                    MessageBox.Show("Record updated successfully!")
                     TextBoxName.Clear()
                     TextBoxAge.Clear()
                     TextBoxEmail.Clear()
                     TextBoxHiddenID.Clear()
-
                 End Using
             End Using
         Catch ex As Exception
@@ -100,23 +95,22 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub ButtonRemove_Click(sender As Object, e As EventArgs) Handles ButtonRemove.Click
-        'Dim query As String = "DELETE FROM `crud_demo_db`.`students_tbl` WHERE (`id` = '3');"
-        Dim query As String = "UPDATE `crud_demo_db`.`students_tbl`
+    Private Sub ButtonDelete_Click(sender As Object, e As EventArgs) Handles ButtonDelete.Click
+        ' Dim query As String = "DELETE FROM `crud_demo_db`.`students_tbl` WHERE (`id` = @id);"
+        Dim query As String = "UPDATE `crud_demo_db`.`students_tbl` 
                                 SET is_deleted = 1
                                 WHERE (`id` = @id);"
         Try
-            Using conn As New MySqlConnection("server=127.0.0.1; port=3307; userid=root; database=crud_demo_db;")
+            Using conn As New MySqlConnection("server=localhost; userid=root; password=root; database=crud_demo_db;")
                 conn.Open()
                 Using cmd As New MySqlCommand(query, conn)
                     cmd.Parameters.AddWithValue("@id", CInt(TextBoxHiddenID.Text))
                     cmd.ExecuteNonQuery()
-                    MessageBox.Show("Record removed successful!")
+                    MessageBox.Show("Record deleted successfully!")
                     TextBoxName.Clear()
                     TextBoxAge.Clear()
                     TextBoxEmail.Clear()
                     TextBoxHiddenID.Clear()
-
                 End Using
             End Using
         Catch ex As Exception
